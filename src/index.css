@@ -1,0 +1,41 @@
+@import "/node_modules/slick-carousel/slick/slick.css";
+@import "/node_modules/slick-carousel/slick/slick-theme.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.primary-color {
+  background-color: #f5f5f5;
+}
+.footer-color {
+  background-color: #fafbfd;
+}
+.inner-card {
+  background-color: #f8f8f8;
+}
+.slick-slider {
+  margin: 0 5px;
+}
+/* .slick-slide {
+  padding: 10px;
+} */
+.slider-container {
+  display: none;
+}
+@media (max-width: 768px) {
+  .slick-slider {
+    margin: 0; /* Remove margin on mobile */
+  }
+
+  .slick-slide {
+    padding: 2px; /* Remove padding on mobile */
+  }
+}
+.carrer-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 3%, #000 106.88%);
+  opacity: 0.7;
+}
