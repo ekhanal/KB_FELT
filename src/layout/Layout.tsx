@@ -4,16 +4,20 @@ import Main from "./Main";
 import { PATH } from "../constants/path";
 import Dashboard from "../pages/home/Dashboard";
 import Navbar from "../components/header/Navbar";
-import TopNavbar from "../components/header/TopNavbar";
+// import TopNavbar from "../components/header/TopNavbar";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ProductDetailPage from "../pages/products/ProductDetailsPage";
 import Cart from "../pages/cart/Cart";
 import ProductCategoryPaage from "../pages/products/ProductCategoryPage";
-import PaymentMethod from "../pages/payment/PaymentMethod";
+// import PaymentMethod from "../pages/payment/PaymentMethod";
+import Payment from "../pages/payment/Payment";
 import Wishlist from "../pages/wishlist/Wishlist";
-import MobileFooter from "../components/footer/MobileFooter";
+// import MobileFooter from "../components/footer/MobileFooter";
 import CategoryCardPage from "../pages/products/CategoryCardPage";
+import Testimonials from "../components/footer/Testimonials";
+import NewsLetter from "../components/footer/NewsLetter";
+import Display from "../components/footer/Display";
 
 const Layout = () => {
   // const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -23,7 +27,7 @@ const Layout = () => {
       <div className=" relative flex h-screen overflow-hidden">
         <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
           {/* <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} /> */}
-          <TopNavbar />
+          {/* <TopNavbar /> */}
           <Navbar />
           <Header />
           <Main>
@@ -38,7 +42,7 @@ const Layout = () => {
                 path={PATH.ProductCategoryPage}
                 element={<ProductCategoryPaage />}
               />
-              <Route path={PATH.paymentMethod} element={<PaymentMethod />} />
+              <Route path={PATH.Payment} element={<Payment />} />
               <Route path={PATH.wishlist} element={<Wishlist />} />
               <Route
                 path={PATH.CategoryCardPage}
@@ -46,8 +50,11 @@ const Layout = () => {
               />
             </Routes>
           </Main>
+          <Testimonials />  
+          <NewsLetter />
+          <Display/>
           <Footer />
-          <MobileFooter />
+          {/* <MobileFooter /> */}
         </div>
       </div>
     </>

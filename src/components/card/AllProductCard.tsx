@@ -33,7 +33,7 @@ const AllProductsCard: React.FC<ProductCardProps> = ({ data, heading }) => {
 
   return (
     <>
-      <h2 className="my-5 text-xl font-semibold">{heading}</h2>
+      <h2 className="my-5 text-xl font-semibold text-pink-400">{heading}</h2>
       <div className="rounded-3xl font-sans grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
         {data.slice(0, visibleProducts).map((item, index) => (
           <Link
@@ -66,12 +66,6 @@ const AllProductsCard: React.FC<ProductCardProps> = ({ data, heading }) => {
                 <span className="font-semibold text-blue-500  text-sm md:text-base text-nowrap ">
                   ${getValue(item, "price")}
                 </span>
-                <span className="line-through text-gray-400 text-xs">
-                  ${getValue(item, "disPrice")}
-                </span>
-                <span className="p-1 bg-rose-500 text-white text-xs rounded-lg h-5 hidden md:flex text-nowrap items-center">
-                  24% off
-                </span>
               </div>
             </div>
           </Link>
@@ -81,7 +75,7 @@ const AllProductsCard: React.FC<ProductCardProps> = ({ data, heading }) => {
         {visibleProducts < data.length && (
           <button
             onClick={loadMore}
-            className="px-4 py-2 bg-blue-900 text-white rounded-md mx-2"
+            className="px-4 py-2 bg-pink-400 text-white rounded-md mx-2"
           >
             Load More
           </button>
@@ -89,7 +83,7 @@ const AllProductsCard: React.FC<ProductCardProps> = ({ data, heading }) => {
         {visibleProducts > 2 && (
           <button
             onClick={loadLess}
-            className="px-4 py-2 bg-blue-900 text-white rounded-md mx-2"
+            className="px-4 py-2 bg-pink-400 text-white rounded-md mx-2"
           >
             Load Less
           </button>

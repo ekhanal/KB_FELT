@@ -4,10 +4,10 @@ import { GoDotFill } from "react-icons/go";
 import { LiaStarSolid } from "react-icons/lia";
 import ProductTabs from "../../components/Products/ProductTabs";
 import Button from "../../components/common/Button/Button";
-import TopProducts from "../../components/Products/TopProducts";
+// import TopProducts from "../../components/Products/TopProducts";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import SimilarProducts from "./SimilarProducts";
 const ProductDetailPage = () => {
   const [quantity, setQuantity] = useState(0); // Initial quantity value
   const [mainImage, setMainImage] = useState(motorsData[0].image);
@@ -66,7 +66,7 @@ const ProductDetailPage = () => {
                 <div className="absolute top-12 right-3 flex flex-col gap-2 rounded-full bg-white">
                   <CiShare2 size={30} className="rounded-full p-1" />
                 </div>
-                <div className="absolute top-2 left-2 rounded-full bg-red-500 text-white p-2 w-14 h-14 flex items-center justify-center">
+                <div className="absolute top-2 left-2 rounded-full bg-[#22787f] text-white p-2 w-14 h-14 flex items-center justify-center">
                   <span className="text-xs font-bold">
                     25%
                     <br />
@@ -100,9 +100,9 @@ const ProductDetailPage = () => {
             Compatible With 4 To 6 Inch Devices(Black)
           </p>
           <div className="gap-2 flex items-center my-2">
-            <span className="text-xl text-blue-500 font-semibold">$1,200</span>
-            <span className="text-gray-400 line-through text-sm">$600</span>
-            <span className="text-white text-xs px-1 rounded-lg bg-rose-500">
+            <span className="text-xl text-[#22787f] font-semibold">$1,200</span>
+            <span className="text-black line-through text-sm">$600</span>
+            <span className="text-white text-xs px-1 rounded-lg bg-pink-400">
               66% off
             </span>
           </div>
@@ -134,6 +134,48 @@ const ProductDetailPage = () => {
               </span>
               <span className="text-sm bg-gray-200 px-2 py-1 font-medium rounded-lg">
                 3xl
+              </span>
+            </div>
+          </div>
+          {/* category */}
+          <div className="my-2">
+            <span className="font-semibold">Category:</span>
+            <div className="flex items-center gap-3 mt-1">
+              <span className="text-sm bg-gray-200 px-2 py-1 font-medium rounded-lg">
+                Yarn and Wool
+              </span>
+              <span className="text-sm bg-gray-200 px-2 py-1 font-medium rounded-lg">
+                DIY Kits
+              </span>
+              <span className="text-sm bg-gray-200 px-2 py-1 font-medium rounded-lg">
+                Fabrics and Textiles
+              </span>
+              <span className="text-sm bg-gray-200 px-2 py-1 font-medium rounded-lg">
+                Tools and Accessories
+              </span>
+              <span className="text-sm bg-gray-200 px-2 py-1 font-medium rounded-lg">
+                Craft Supplies
+              </span>
+            </div>
+          </div>
+          {/* color */}
+          <div className="my-2">
+            <span className="font-semibold">Color:</span>
+            <div className="flex items-center gap-3 mt-1">
+              <span className="text-sm bg-red-500 px-2 py-1 text-white font-medium rounded-lg">
+                Red
+              </span>
+              <span className="text-sm bg-blue-500 px-2 py-1 text-white font-medium rounded-lg">
+                Blue
+              </span>
+              <span className="text-sm bg-yellow-500 px-2 py-1 text-white font-medium rounded-lg">
+                Yellow
+              </span>
+              <span className="text-sm bg-black px-2 py-1 text-white font-medium rounded-lg">
+                Black
+              </span>
+              <span className="text-sm bg-green-500 px-2  text-white py-1 font-medium rounded-lg">
+                Green
               </span>
             </div>
           </div>
@@ -169,7 +211,9 @@ const ProductDetailPage = () => {
       <div className="px-5 lg:px-20">
         <ProductTabs />
       </div>
-      <TopProducts />
+      <div>
+        <SimilarProducts />
+      </div>
     </>
   );
 };

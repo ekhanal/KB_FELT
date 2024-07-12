@@ -17,7 +17,7 @@ const ProductCategoryPage = () => {
   return (
     <>
       <div className="flex px-5 lg:px-20 my-5 gap-2 md:gap-5">
-        <div className="w-4/12 md:w-2/12 bg-white rounded-lg p-2">
+        <div className="w-4/12 md:w-2/12 rounded-lg p-2 bg-white">
           <div className="flex justify-between pb-2  border-b ">
             <span>Fliter</span>
             <button className="text-rose-500 font-medium" onClick={handleClear}>
@@ -73,7 +73,7 @@ const ProductCategoryPage = () => {
                 <Link to={"/CategoryCardPage"}>
                   <div
                     key={index}
-                    className="main-bg p-2 rounded-lg flex flex-col   cursor-pointer "
+                    className="main-bg p-2 rounded-lg flex flex-col cursor-pointer "
                   >
                     {item.subcategory.map((subcat) => (
                       <>

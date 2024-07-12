@@ -20,9 +20,9 @@ const Header = () => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative bg-[#22787f] ">
         <div
-          className="hidden md:flex gap-5 mx-20 py-2 font-sans justify-between  bg-white w-full lg:w-9/12 overflow-x-scroll"
+          className="hidden md:flex gap-5 mx-20 py-2 text-white font-sans justify-between  w-full lg:w-9/12 overflow-x-scroll"
           style={{ scrollbarWidth: "none" }}
         >
           <span

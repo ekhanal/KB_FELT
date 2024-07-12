@@ -11,7 +11,7 @@ import {
 
 import { useLoginAccount } from "../../hooks/auth.hook";
 import { showErrorMessage, showSuccessMessage } from "../../utils/toast";
-import Logo from "./../../assets/images/logo.png";
+import Logo from "./../../assets/images/kb fent logo.svg";
 
 import { AUTH_COOKIE_CONFIG } from "../../constants/common";
 import { getValue } from "../../utils/object";
@@ -102,7 +102,7 @@ const LoginModal: React.FC<ModalProps> = ({ visible, setVisible, onClose }) => {
             <div className="w-[80%]  ">
               <div className=" flex items-center flex-col">
                 <img src={Logo} alt="Logo" className="h-24 md:h-32" />
-                <h1 className="text-[#01548d] flex justify-center text-2xl md:text-3xl font-bold ">
+                <h1 className="text-pink-400 flex justify-center text-2xl md:text-3xl font-bold ">
                   User Login
                 </h1>
               </div>
@@ -126,10 +126,10 @@ const LoginModal: React.FC<ModalProps> = ({ visible, setVisible, onClose }) => {
                       placeHolder="Password"
                       style="py-3 text-sm md:text-xl  rounded-xl"
                     />
-                    <span className="text-[#3494fb] flex self-end text-sm md:text-base ">
+                    <span className="text-pink-400 flex self-end text-sm md:text-base ">
                       Forgot Password?
                     </span>
-                    <button className="uppercase bg-blue-900 text-white font-bold text-sm md:text-base py-2 md:py-3 rounded-md ">
+                    <button className="uppercase bg-pink-400 text-white font-bold text-sm md:text-base py-2 md:py-3 rounded-md ">
                       Login
                     </button>
                   </form>

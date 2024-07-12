@@ -18,7 +18,7 @@ const ButtonLogin: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`cursor-pointer rounded-md bg-blue-900  text-white transition hover:bg-opacity-90 ${styles}`}
+      className={`cursor-pointer rounded-md bg-pink-400  text-white transition hover:bg-opacity-90 ${styles}`}
       onClick={onClickLogin}
       disabled={disabled}
     >

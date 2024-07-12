@@ -7,7 +7,7 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import Logo from "./../../assets/images/logo.png";
+import Logo from "./../../assets/images/kb fent logo.svg";
 import { showErrorMessage } from "../../utils/toast";
 import { getValue } from "../../utils/object";
 import { useClickOutside } from "../../hooks/useClickOutside.hook";
@@ -87,7 +87,7 @@ const SignUpModal: React.FC<ModalProps> = ({
             <div className="w-[80%]">
               <div className="flex items-center flex-col">
                 <img src={Logo} alt="Logo" className="h-24 md:h-32" />
-                <h1 className="text-[#01548d] flex justify-center text-lg md:text-2xl font-bold">
+                <h1 className="text-pink-400 flex justify-center text-lg md:text-2xl font-bold">
                   User SignUp
                 </h1>
               </div>
@@ -150,7 +150,7 @@ const SignUpModal: React.FC<ModalProps> = ({
                     </div>
 
                     <button
-                      className="uppercase bg-blue-900 text-white font-bold text-sm py-3 rounded-md"
+                      className="uppercase bg-pink-400 text-white font-bold text-sm py-3 rounded-md"
                       disabled={isPending}
                     >
                       Sign Up

@@ -1,47 +1,37 @@
-import image2 from "./../../assets/images/motors2.jpg";
-import image1 from "./../../assets/images/motors3.png";
-import image3 from "./../../assets/images/motors4.webp";
-import motors from "./../../assets/images/motors.jpg";
+import image2 from "./../../assets/images/handmade.jpg";
+import image1 from "./../../assets/images/handcrafted.jpg";
+import image3 from "./../../assets/images/santa.jpg";
+import image4 from "./../../assets/images/needle.jpg";
+import motors from "../../assets/images/motors.jpg";
 export const dummyData = [
   {
     id: 1,
-    image: image1,
-    price: 99.99,
-    description:
-      "Gear Pump X - High-performance gear pump suitable for industrial applications. This gear pump is designed for durability and efficiency, providing reliable operation under varying conditions. It offers a maximum flow rate of 1000 L/min and operates at a pressure of up to 5000 psi. Ideal for hydraulic systems and heavy machinery.",
-    rating: 4.5,
-    offer: 20,
-    disPrice: 120.99,
+    image:image1,
+    title:"Handcrafted Black Round Felt Pouf",
+    price:99.00,
+   
   },
   {
     id: 2,
     image: image2,
+    title:"Round Grey Wool Felt Pouf",
     price: 79.99,
-    description:
-      "Gear Pump Y - Versatile gear pump perfect for agricultural and automotive use. This gear pump delivers consistent performance with a power output of 1500W and operates efficiently with diesel fuel. It features a compact design and is easy to integrate into various systems.",
-    rating: 4.0,
-    offer: 15,
-    disPrice: 90.99,
   },
+   
   {
     id: 3,
     image: image3,
+    title:"Wool Felt Yoga Mat- Thick and Handmade",
     price: 79.99,
-    description:
-      "Gear Pump Z - Reliable gear pump for marine and industrial applications. This gear pump offers a smooth flow rate of 800 L/min and is capable of handling high-pressure environments up to 4000 psi. It is crafted from durable materials to ensure long-term performance and minimal maintenance.",
-    rating: 4.0,
-    offer: 15,
-    disPrice: 90.99,
+    
   },
   {
     id: 4,
-    image: image1,
-    price: 99.99,
-    description:
-      "Gear Pump W - Heavy-duty gear pump designed for demanding industrial environments. This gear pump delivers exceptional power with a capacity of 2000W and operates seamlessly with gasoline. It features a robust construction and is ideal for continuous operation in harsh conditions.",
-    rating: 4.5,
-    offer: 20,
-    disPrice: 120.99,
+    image: image4,
+    title:"8cm Needle Felted Chameleo",
+    price:99.00,
+
+   
   },
   // Add more product objects as needed
 ];
@@ -56,9 +46,9 @@ export const bulletListItems = [
 export const motorsData = [
   {
     id: 1,
-    image: motors,
-    name: "Electric Motor A",
-    description: "Powerful electric motor for industrial use.",
+    image:image1,
+    name: "Handmade round felt pouf",
+    description: "Handcrafted Black Round Felt Pouf",
     specifications: [
       { label: "Power", value: "500W" },
       { label: "Voltage", value: "220V" },
@@ -78,9 +68,9 @@ export const motorsData = [
   },
   {
     id: 2,
-    image: image1,
-    name: "Diesel Engine B",
-    description: "Heavy-duty diesel engine suitable for trucks.",
+    image: image2,
+    name: "Round Grey Wool Felt Pouf",
+    description: "Handcrafted Round Grey Wool Felt Pouf",
     specifications: [
       { label: "Power", value: "1500HP" },
       { label: "Fuel Type", value: "Diesel" },
@@ -100,9 +90,9 @@ export const motorsData = [
   },
   {
     id: 3,
-    image: image2,
-    name: "Hydraulic Pump C",
-    description: "High-performance hydraulic pump for machinery.",
+    image: image3,
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade.",
     specifications: [
       { label: "Flow Rate", value: "1000 L/min" },
       { label: "Pressure", value: "5000 psi" },
@@ -148,9 +138,8 @@ export const motorsData = [
     name: "Solar Inverter E",
     description: "Efficient solar inverter for renewable energy systems.",
     specifications: [
-      { label: "Power", value: "1000W" },
-      { label: "Input Voltage", value: "12V" },
-      { label: "Output Voltage", value: "220V" },
+      { label: "wool" },
+      
     ],
     price: "$400",
     discountPrice: "$370",
@@ -167,16 +156,16 @@ export const motorsData = [
 ];
 
 export const motorCategory = [
-  { name: "Engine" },
-  { name: "Transmission" },
-  { name: "Radiator" },
-  { name: "Alternator" },
-  { name: "Battery" },
-  { name: "Spark Plug" },
-  { name: "Fuel Pump" },
-  { name: "Oil Filter" },
-  { name: "Air Filter" },
-  { name: "Exhaust" },
+  { name: "Home" },
+  { name: "Felt Balls" },
+  { name: "Craft Supplies" },
+  { name: "Felt Shoes" },
+  { name: "Pet Products" },
+  { name: "Dryer Ball" },
+  { name: "Decors" },
+  { name: "Rugs" },
+  { name: "Yarn" },
+  { name: "Yoga Mat" },
 ];
 export const peopleData = [
   {

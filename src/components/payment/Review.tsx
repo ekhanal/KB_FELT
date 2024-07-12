@@ -70,7 +70,7 @@ const Review = () => {
               />
               <button
                 type="submit"
-                className="mt-4 p-2 bg-blue-900 text-white rounded"
+                className="mt-4 p-2 bg-pink-400 text-white rounded"
               >
                 Submit
               </button>

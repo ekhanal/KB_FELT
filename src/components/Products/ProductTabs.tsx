@@ -16,8 +16,8 @@ const Tabs = () => {
         <button
           className={`py-2 px-4 border-b-2 transition duration-300 text-sm ${
             activeTab === 0
-              ? "border-blue-500 text-blue-500"
-              : "border-transparent text-gray-500 hover:text-blue-500"
+              ? "border-[#22787f] hover:text-[#22787f]"
+              : "border-transparent text-gray-500 hover:text-[#22787f]"
           }`}
           onClick={() => handleTabClick(0)}
         >
@@ -26,8 +26,8 @@ const Tabs = () => {
         <button
           className={`py-2 px-4 border-b-2 transition duration-300 text-sm ${
             activeTab === 1
-              ? "border-blue-500 text-blue-500"
-              : "border-transparent text-gray-500 hover:text-blue-500"
+              ? "border-[#22787f] hover:text-[#22787f]"
+              : "border-transparent text-gray-500 hover:text-[#22787f]"
           }`}
           onClick={() => handleTabClick(1)}
         >
@@ -36,8 +36,8 @@ const Tabs = () => {
         <button
           className={`py-2 px-4 border-b-2 transition duration-300 text-sm ${
             activeTab === 2
-              ? "border-blue-500 text-blue-500"
-              : "border-transparent text-gray-500 hover:text-blue-500"
+              ? "border-[#22787f] hover:text-[#22787f]"
+              : "border-transparent text-gray-500 hover:text-[#22787f]"
           }`}
           onClick={() => handleTabClick(2)}
         >
@@ -74,7 +74,7 @@ const Tabs = () => {
                     {motor.specifications.map((spec, index) => (
                       <div key={index} className="mb-2">
                         <span className="font-semibold">{spec.label}:</span>{" "}
-                        {spec.value}
+                       
                       </div>
                     ))}
                   </div>
