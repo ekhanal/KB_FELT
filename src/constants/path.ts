@@ -1,5 +1,3 @@
-
-
 export const PATH = {
   dashboard: "/",
   resetPassword: "/resetPassword",
@@ -7,9 +5,9 @@ export const PATH = {
   login: "/login",
   productDetailsPage: "/productDetailsPage",
   cart: "/cart",
-  ProductCategoryPage: "/ProductCategoryPage",
-  paymentMethod: "/paymentmethod",
-  wishlist: "wishlist",
-  CategoryCardPage: "/CategoryCardPage",
-  Payment:"Payment",
+  productCategoryPage: "/productCategoryPage",
+  paymentMethod: "/paymentMethod",
+  wishlist: "/wishlist",
+  categoryCardPage: "/categoryCardPage",
+  payment: "/payment",
 };

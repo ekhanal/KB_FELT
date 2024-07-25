@@ -64,14 +64,14 @@ const Tabs = () => {
         {activeTab === 1 && (
           <div>
             {" "}
-            <h2 className="text-xl font-bold mb-4">Motors Parts List</h2>
+            <h2 className="text-xl font-bold mb-4">Crafts</h2>
             <ul className="">
-              {motorsData.map((motor) => (
+              {motorsData?.map((motor) => (
                 <li key={motor.id} className="mb-4">
                   <h3 className="font-bold">{motor.name}</h3>
                   <p className="text-gray-600 mb-2">{motor.description}</p>
                   <div className=" gap-2">
-                    {motor.specifications.map((spec, index) => (
+                    {motor.specifications?.map((spec, index) => (
                       <div key={index} className="mb-2">
                         <span className="font-semibold">{spec.label}:</span>{" "}
                        

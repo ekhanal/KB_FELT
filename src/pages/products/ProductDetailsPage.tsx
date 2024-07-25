@@ -6,9 +6,9 @@ import ProductTabs from "../../components/Products/ProductTabs";
 import Button from "../../components/common/Button/Button";
 // import TopProducts from "../../components/Products/TopProducts";
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import SimilarProducts from "./SimilarProducts";
 const ProductDetailPage = () => {
+  
   const [quantity, setQuantity] = useState(0); // Initial quantity value
   const [mainImage, setMainImage] = useState(motorsData[0].image);
   const mainImageRef = useRef(null);
@@ -75,21 +75,17 @@ const ProductDetailPage = () => {
                 </div>
               </div>
               <div className="w-full flex gap-2 md:gap-5 mt-5">
-                <Link
-                  to="/cart"
-                  className="w-full flex gap-5"
-                  onClick={handleClick}
-                >
                   <Button title="Add to cart" styles="cursor-pointer " />
-                </Link>
+                  <a href="/cart" className="w-full flex gap-5" onClick={handleClick}>
                 <Button title="Buy Now" styles="cursor-pointer" />
+                </a>
               </div>
             </div>
           </div>
         </div>
         {/* right product details */}
         <div className="w-full md:w-1/2 h-full">
-          <span className="text-gray-500 text-xs my-3">{`Home > Men Clothing > Men's Top Wear`}</span>
+          {/* <span className="text-gray-500 text-xs my-3">{`Home > Men Clothing > Men's Top Wear`}</span> */}
           <h1 className="text-sm text-gray-500 my-2"> Brand Portronics</h1>
           <p className="text-black font-semibold text-lg">
             {motorsData[0].name}
@@ -183,12 +179,12 @@ const ProductDetailPage = () => {
           <div className="items-center my-2">
             <span className="mr-2 font-semibold block">Quantity</span>
             <div className="flex items-center justify-between rounded-lg h-8 bg-white w-24 mt-1 font-bold">
-              <button className="py-1 px-2" onClick={incrementQuantity}>
-                +
+              <button className="py-1 px-2" onClick={decrementQuantity}>
+                -
               </button>
               <span className="px-2 py-1">{quantity}</span>
-              <button className="py-1 px-2 text-xl" onClick={decrementQuantity}>
-                -
+              <button className="py-1 px-2 text-xl" onClick={ incrementQuantity}>
+                +
               </button>
             </div>
           </div>

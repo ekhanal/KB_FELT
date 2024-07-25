@@ -12,7 +12,7 @@ const NewsLetter = () => {
         <div className="w-fit flex items-center justify-center m-4 border">
           <input type="email" placeholder="Enter your email" className="focus:outline-none px-2 py-2 w-full sm:w-auto "/>
           <div>
-            <button className=" text-white bg-pink-700  px-6 py-2">
+            <button className=" text-white bg-pink-400  px-6 py-2">
               <span>Subscribe</span>
             </button>
           </div>

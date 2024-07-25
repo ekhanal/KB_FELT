@@ -88,7 +88,7 @@ const CategoriesCarosule = () => {
     <div className=" md:-mt-0 z-40 bg-white pt-8">
       <div className="text-center">
         <h1 className="text-base md:text-2xl font-semibold text-pink-400">CRAFT SUPPLIES</h1>
-        <p className="text-gray-400">
+        <p className="text-[#22787f] ">
           Over 500+ unique designs with customization
         </p>
       </div>

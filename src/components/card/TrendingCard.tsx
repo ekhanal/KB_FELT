@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 interface Item {
   image: string;
@@ -13,7 +13,8 @@ interface TrendingCardProps {
 const TrendingCard: React.FC<TrendingCardProps> = ({ item }) => {
   return (
     <div className="w-full  rounded-md overflow-hidden border m-4">
-      <Link to={"/productDetailsPage"}>
+      {/* <Link to={"/productDetailsPage"}> */}
+      <a href={"/productDetailsPage"}>
       <div className="w-full flex flex-col items-center">
         <img
           className="w-full rounded-t-md md:h-[300px] object-cover"
@@ -29,7 +30,8 @@ const TrendingCard: React.FC<TrendingCardProps> = ({ item }) => {
           </p>
         </div>
       </div>
-      </Link>
+      </a>
+      {/* </Link> */}
     </div>
   );
 };

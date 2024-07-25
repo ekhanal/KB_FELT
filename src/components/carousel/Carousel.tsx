@@ -1,8 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
-import image2 from "./../../assets/images/banner2.jpg";
-import image3 from "./../../assets/images/banner4.jpg";
-import image4 from "./../../assets/images/banner3.jpg";
+import image2 from "./../../assets/images/banner5.jpg";
+import image3 from "./../../assets/images/Handicraftbag.jpg";
+import image4 from "./../../assets/images/banner5.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

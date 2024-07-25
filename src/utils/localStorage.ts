@@ -1,3 +1,3 @@
-export const SetHighlightsToLocalStorage = (highlights: any) => {
-  localStorage.setItem("highlights", JSON.stringify(highlights));
+export const SetProductToLocalStorage = (productId: any) => {
+  localStorage.setItem("productId", productId);
 };

@@ -10,15 +10,21 @@ import { IoMdPricetag } from "react-icons/io";
 const Cart = () => {
   const [visible, setVisible] = useState(false);
   const [editVisible, setEditVisible] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [quantities, setQuantities] = useState({});
 
-  const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+  const incrementQuantity = (itemId) => {
+    setQuantities({
+      ...quantities,
+      [itemId]: (quantities[itemId] || 0) + 1,
+    });
   };
 
-  const decrementQuantity = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
+  const decrementQuantity = (itemId) => {
+    if (quantities[itemId] > 0) {
+      setQuantities({
+        ...quantities,
+        [itemId]: quantities[itemId] - 1,
+      });
     }
   };
 
@@ -82,15 +88,18 @@ const Cart = () => {
                     </div>
                     <div className="flex items-center">
                       <div className="flex items-center justify-between rounded-lg h-7 bg-gray-100 w-18">
-                        <button className="px-2" onClick={incrementQuantity}>
-                          +
-                        </button>
-                        <span className="px-2">{quantity}</span>
                         <button
                           className="px-2 text-xl"
-                          onClick={decrementQuantity}
+                          onClick={() => decrementQuantity(item.id)}
                         >
                           -
+                        </button>
+                        <span className="px-2">{quantities[item.id] || 0}</span>
+                        <button
+                          className="px-2"
+                          onClick={() => incrementQuantity(item.id)}
+                        >
+                          +
                         </button>
                       </div>
                     </div>

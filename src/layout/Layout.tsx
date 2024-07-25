@@ -9,7 +9,6 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ProductDetailPage from "../pages/products/ProductDetailsPage";
 import Cart from "../pages/cart/Cart";
-import ProductCategoryPaage from "../pages/products/ProductCategoryPage";
 // import PaymentMethod from "../pages/payment/PaymentMethod";
 import Payment from "../pages/payment/Payment";
 import Wishlist from "../pages/wishlist/Wishlist";
@@ -18,6 +17,7 @@ import CategoryCardPage from "../pages/products/CategoryCardPage";
 import Testimonials from "../components/footer/Testimonials";
 import NewsLetter from "../components/footer/NewsLetter";
 import Display from "../components/footer/Display";
+import ProductCategoryPage from "../pages/products/ProductCategoryPage";
 
 const Layout = () => {
   // const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,13 +39,13 @@ const Layout = () => {
               />
               <Route path={PATH.cart} element={<Cart />} />
               <Route
-                path={PATH.ProductCategoryPage}
-                element={<ProductCategoryPaage />}
+                path={`${PATH.productCategoryPage}/:product`}
+                element={<ProductCategoryPage />}
               />
-              <Route path={PATH.Payment} element={<Payment />} />
+              <Route path={PATH.payment} element={<Payment />} />
               <Route path={PATH.wishlist} element={<Wishlist />} />
               <Route
-                path={PATH.CategoryCardPage}
+                path={PATH.categoryCardPage}
                 element={<CategoryCardPage />}
               />
             </Routes>

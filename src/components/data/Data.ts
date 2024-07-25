@@ -2,13 +2,14 @@ import image2 from "./../../assets/images/handmade.jpg";
 import image1 from "./../../assets/images/handcrafted.jpg";
 import image3 from "./../../assets/images/santa.jpg";
 import image4 from "./../../assets/images/needle.jpg";
-import motors from "../../assets/images/motors.jpg";
+import motors from "../../assets/images/handmade.jpg";
 export const dummyData = [
   {
     id: 1,
     image:image1,
     title:"Handcrafted Black Round Felt Pouf",
     price:99.00,
+
    
   },
   {
@@ -45,8 +46,8 @@ export const bulletListItems = [
 ];
 export const motorsData = [
   {
-    id: 1,
-    image:image1,
+    // id: 1,
+    image: image1,
     name: "Handmade round felt pouf",
     description: "Handcrafted Black Round Felt Pouf",
     specifications: [
@@ -58,16 +59,16 @@ export const motorsData = [
     discountPrice: "$180",
     offerPrice: "$170",
     size: "M",
-    category: "Motors",
+    category: "Home",
     subcategory: [
       {
-        name: "Electric Motors",
-        image: image2,
+        name: "Poufs",
+        image: image1,
       },
     ],
   },
   {
-    id: 2,
+    id: 1,
     image: image2,
     name: "Round Grey Wool Felt Pouf",
     description: "Handcrafted Round Grey Wool Felt Pouf",
@@ -80,16 +81,16 @@ export const motorsData = [
     discountPrice: "$4500",
     offerPrice: "$4300",
     size: "L",
-    category: "Engines",
+    category: "Felt Balls",
     subcategory: [
       {
-        name: "Diesel Engines",
+        name: "Poufs",
         image: image2,
       },
     ],
   },
   {
-    id: 3,
+    id: 2,
     image: image3,
     name: "Handmade yoga mat",
     description: "Wool Felt Yoga Mat- Thick and Handmade.",
@@ -102,19 +103,19 @@ export const motorsData = [
     discountPrice: "$2700",
     offerPrice: "$2600",
     size: "XL",
-    category: "Pumps",
+    category: "Craft Supplies",
     subcategory: [
       {
-        name: "Hydraulic Pumps",
-        image: image2,
+        name: "Yoga Mats",
+        image: image3,
       },
     ],
   },
   {
-    id: 4,
+    id: 3,
     image: image3,
-    name: "Gasoline Generator D",
-    description: "Portable gasoline generator for outdoor use.",
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
     specifications: [
       { label: "Power Output", value: "5000W" },
       { label: "Fuel Type", value: "Gasoline" },
@@ -124,36 +125,136 @@ export const motorsData = [
     discountPrice: "$650",
     offerPrice: "$620",
     size: "M",
-    category: "Generators",
+    category: "Felt Shoes",
     subcategory: [
       {
-        name: "Gasoline Generators",
-        image: image2,
+        name: "Yoga Mats",
+        image: image3,
+      },
+    ],
+  },
+  {
+    id: 4,
+    image: motors,
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
+    specifications: [
+      { label: "wool" },
+    ],
+    price: "$400",
+    discountPrice: "$370",
+    offerPrice: "$350",
+    size: "S",
+    category: "Pet Products",
+    subcategory: [
+      {
+        name: "Yoga Mats",
+        image: motors,
       },
     ],
   },
   {
     id: 5,
     image: motors,
-    name: "Solar Inverter E",
-    description: "Efficient solar inverter for renewable energy systems.",
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
     specifications: [
       { label: "wool" },
-      
     ],
     price: "$400",
     discountPrice: "$370",
     offerPrice: "$350",
     size: "S",
-    category: "Inverters",
+    category: "Dryer Ball",
     subcategory: [
       {
-        name: "Solar Inverters",
-        image: image2,
+        name: "Dryer Ball",
+        image: motors,
+      },
+    ],
+  },
+  {
+    id: 6,
+    image: motors,
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
+    specifications: [
+      { label: "wool" },
+    ],
+    price: "$400",
+    discountPrice: "$370",
+    offerPrice: "$350",
+    size: "S",
+    category: "Decors",
+    subcategory: [
+      {
+        name: "Dryer Ball",
+        image: motors,
+      },
+    ],
+  },
+  {
+    id: 7,
+    image: motors,
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
+    specifications: [
+      { label: "wool" },
+    ],
+    price: "$400",
+    discountPrice: "$370",
+    offerPrice: "$350",
+    size: "S",
+    category: "Rugs",
+    subcategory: [
+      {
+        name: "Rugs",
+        image: motors,
+      },
+    ],
+  },
+  {
+    id: 8,
+    image: motors,
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
+    specifications: [
+      { label: "wool" },
+    ],
+    price: "$400",
+    discountPrice: "$370",
+    offerPrice: "$350",
+    size: "S",
+    category: "Yoga Mat",
+    subcategory: [
+      {
+        name: "Yoga Mat",
+        image: motors,
+      },
+    ],
+  },
+  {
+    id:9 ,
+    image: motors,
+    name: "Handmade yoga mat",
+    description: "Wool Felt Yoga Mat- Thick and Handmade",
+    specifications: [
+      { label: "wool" },
+    ],
+    price: "$400",
+    discountPrice: "$370",
+    offerPrice: "$350",
+    size: "S",
+    category: "Yarns",
+    subcategory: [
+      {
+        name: "Yarns",
+        image: motors,
       },
     ],
   },
 ];
+
 
 export const motorCategory = [
   { name: "Home" },

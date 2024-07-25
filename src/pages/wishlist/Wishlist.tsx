@@ -2,7 +2,8 @@ import { getValue } from "../../utils/object";
 import { dummyData } from "../../components/data/Data";
 import { Link } from "react-router-dom";
 import ButtonLogin from "../../components/common/Button/ButtonLogin";
-import { FaTrash } from "react-icons/fa";
+import { RxCross2 } from "react-icons/rx";
+
 const Wishlist = () => {
   const handleClick = () => {
     window.scrollTo(0, 0);
@@ -25,23 +26,17 @@ const Wishlist = () => {
                   <img
                     src={getValue(item, "image")}
                     alt="product"
-                    className="rounded-lg h-52 "
+                    className="rounded-lg h-32 md:h-52 w-full object-cover "
                   />
-                  <FaTrash className="text-rose-500 absolute top-2 right-2" />
+                  < RxCross2 className="text-[#22787f] absolute top-2 right-2" />
                 </div>
-                <span className="line-clamp-3 font-semibold text-xs mt-2   ">
-                  {getValue(item, "description")}
+                <span className="line-clamp-3 font-semibold text-xs mt-2  min-h-16  ">
+                  {getValue(item, "title")}
                 </span>
                 <div className="flex gap-2 items-center  mt-2  ">
                   {" "}
-                  <span className="font-bold text-blue-500  text-sm md:text-base text-nowrap ">
+                  <span className="font-bold text-[#22787f] text-sm md:text-base text-nowrap text-center">
                     ${getValue(item, "price")}
-                  </span>
-                  <span className="line-through text-gray-400 text-xs">
-                    ${getValue(item, "disPrice")}
-                  </span>
-                  <span className="p-1 bg-rose-500 text-white text-xs rounded-lg h-5 flex text-nowrap items-center">
-                    24% off
                   </span>
                 </div>
               </div>
