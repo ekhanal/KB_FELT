@@ -4,19 +4,18 @@ import image3 from "../../assets/images/image4.jpg";
 import image5 from "../../assets/images/image5.jpg";
 import image6 from "../../assets/images/handmade.jpg";
 import { useState } from "react";
-import { PiInstagramLogoLight } from "react-icons/pi";
 
 const images = [image1, image2, image3, image5, image6];
 
 const Display = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const handleMouseEnter = (index) => {
+  const handleMouseEnter = (index: number) => {
     setHoveredIndex(index);
   };
 
   const handleMouseLeave = () => {
-    setHoveredIndex(false);
+    setHoveredIndex(null);
   };
 
   return (

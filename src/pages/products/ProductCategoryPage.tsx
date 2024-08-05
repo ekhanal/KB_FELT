@@ -7,10 +7,10 @@ const ProductCategoryPage = () => {
   const { product } = useParams();
   const [selectedCategory, setSelectedCategory] = useState(null);
 
-  console.log({product})
-  console.log("Hello")
+  console.log({ product });
+  console.log("Hello");
 
-  const handleRadioChange = (event) => {
+  const handleRadioChange = (event: any) => {
     setSelectedCategory(event.target.value);
   };
 

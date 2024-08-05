@@ -3,11 +3,12 @@ export const PATH = {
   resetPassword: "/resetPassword",
   forgotPassword: "/forgotPassword",
   login: "/login",
-  productDetailsPage: "/productDetailsPage",
+  productDetailsPage: "/productDetailsPage/:prod_slug",
   cart: "/cart",
   productCategoryPage: "/productCategoryPage",
   paymentMethod: "/paymentMethod",
   wishlist: "/wishlist",
   categoryCardPage: "/categoryCardPage",
   payment: "/payment",
+  searchPage: "/searchPage/:searchTerm",
 };

@@ -1,5 +1,5 @@
 import { IoCloseSharp } from "react-icons/io5";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Transition from "../../lib/Transition";
 import {
   FieldValues,
@@ -7,53 +7,43 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import Logo from "./../../assets/images/kb fent logo.svg";
+import Logo from "./../../assets/images/logo.png";
 import { showErrorMessage } from "../../utils/toast";
 import { getValue } from "../../utils/object";
 import { useClickOutside } from "../../hooks/useClickOutside.hook";
 import CustomInput from "../form/custom/CustomInput";
-import { useRegisterUser } from "../../hooks/auth.hook";
-
-import OtpModal from "./OtpModal";
+import { useOtpVerify } from "../../hooks/auth.hook";
+import { useNavigate } from "react-router-dom";
 
 interface ModalProps {
   visible: boolean;
   onClose: () => void;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
+  // sessionId: string; // Add sessionId prop
 }
 
-const SignUpModal: React.FC<ModalProps> = ({
-  visible,
-  setVisible,
-  onClose,
-}) => {
+const OtpModal: React.FC<ModalProps> = ({ visible, setVisible, onClose }) => {
   const modalContent = useRef<HTMLDivElement>(null);
-
-  const [otpVisible, setOtpVisible] = useState(false);
   useClickOutside(modalContent, visible, setVisible);
-  const { mutateAsync: registerUser, isPending } = useRegisterUser();
-  const openOtp = () => {
-    setOtpVisible(true);
-  };
-  const closeOtp = () => {
-    setOtpVisible(false);
-  };
+  const navigate = useNavigate();
 
   const methods = useForm();
+
+  const { mutateAsync: verifyOtp } = useOtpVerify();
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      const formData = new FormData();
-      formData.append("email", data.email);
-      formData.append("password", data.password);
-      formData.append("password2", data.password2);
-      formData.append("name", data.name);
-      formData.append("phone_No", data.phone_No);
-      formData.append("country", data.country);
+      console.log(data);
+      const response = await verifyOtp(data);
 
-      const response = await registerUser(formData);
+      // Send OTP verification request with session ID
       if (response) {
-        setOtpVisible(false);
+        setVisible(false);
       }
+      // Assuming response.data contains necessary information after OTP verification
+
+      // Close modal after successful OTP verification
+      setVisible(false);
+      navigate("/");
     } catch (err) {
       showErrorMessage(getValue(err, "err"));
       console.error(err);
@@ -103,8 +93,8 @@ const SignUpModal: React.FC<ModalProps> = ({
             <div className="w-[80%]">
               <div className="flex items-center flex-col">
                 <img src={Logo} alt="Logo" className="h-24 md:h-32" />
-                <h1 className="text-color flex justify-center text-lg md:text-2xl font-bold">
-                  User SignUp
+                <h1 className="text-[#01548d] flex justify-center text-lg md:text-2xl font-bold">
+                  OTP Verification
                 </h1>
               </div>
 
@@ -115,55 +105,17 @@ const SignUpModal: React.FC<ModalProps> = ({
                     className="flex flex-col gap-5"
                   >
                     <CustomInput
-                      type="text"
-                      name="name"
-                      placeHolder="Full name"
-                      style=" text-sm md:text-base rounded-xl text-black"
+                      type="number"
+                      name="otp"
+                      placeHolder="XXXX"
+                      style="py-2 md:py-3 text-sm md:text-base rounded-xl"
                     />
-                    <div className="flex flex-col md:flex-row gap-5 md:gap-2">
-                      <CustomInput
-                        type="email"
-                        name="email"
-                        placeHolder="Email address"
-                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
-                      />
-                      {/* <CustomSelect
-                        name="country"
-                        placeHolder="Select country"
-                        options={options}
-                        onChange={(e:any) => setCountryCode(e.target.value)}
-                      /> */}
-                    </div>
-
-                    <div className="flex gap-2">
-                      <CustomInput
-                        type="number"
-                        name="phone_No"
-                        placeHolder="Mobile no."
-                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
-                      />
-                    </div>
-                    <div className="flex gap-2">
-                      <CustomInput
-                        type="password"
-                        name="password"
-                        placeHolder="Enter password"
-                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
-                      />
-                      <CustomInput
-                        type="password"
-                        name="password2"
-                        placeHolder="Confirm password"
-                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
-                      />
-                    </div>
 
                     <button
                       className="uppercase primary-bg-colors text-white font-bold text-sm py-3 rounded-md"
-                      disabled={isPending}
-                      onClick={openOtp}
+                      disabled={false} // Adjust as per your loading state
                     >
-                      Sign Up
+                      Submit
                     </button>
                   </form>
                 </FormProvider>
@@ -172,13 +124,8 @@ const SignUpModal: React.FC<ModalProps> = ({
           </div>
         </div>
       </Transition>
-      <OtpModal
-        visible={otpVisible}
-        onClose={closeOtp}
-        setVisible={setOtpVisible}
-      />
     </>
   );
 };
 
-export default SignUpModal;
+export default OtpModal;

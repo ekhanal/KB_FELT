@@ -1,62 +1,66 @@
-// import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+
 import { TiArrowSortedDown } from "react-icons/ti";
-// import NavbarDropdown from "./NavbarDropdown";
-import { motorsData } from "../data/Data";
 import { getValue } from "../../utils/object";
 import { Link } from "react-router-dom";
-
+import { useGetAllCategory } from "../../hooks/product.hook";
 
 const Header = () => {
-  // const [dropdown, setDropdown] = useState(false);
-  // const [categoryDropdown, setCategoryDropdown] = useState(false);
-
-  // useEffect(() => {
-  //   setDropdown(categoryDropdown);
-  // }, [categoryDropdown]);
+  const [dropdown, setDropdown] = useState(false);
+  const [categoryDropdown, setCategoryDropdown] = useState(false);
+  const { data: category } = useGetAllCategory();
+  useEffect(() => {
+    if (dropdown || categoryDropdown) {
+      setDropdown(true);
+    } else {
+      setDropdown(false);
+    }
+  }, [dropdown, categoryDropdown]);
 
   return (
-    <div className="relative bg-[#22787f]">
-      <div
-        className="hidden md:flex gap-5 mx-20 py-2 text-white font-sans w-full lg:w-9/12 overflow-x-scroll"
-        style={{ scrollbarWidth: "none" }}
-      >
-        {/* <span
-          className="flex items-center gap-1 text-sm cursor-pointer relative font-semibold"
-          onMouseEnter={() => setCategoryDropdown(true)}
-          onMouseLeave={() => setCategoryDropdown(false)}
+    <>
+      <div className="relative  px-5 lg:px-24  bg-[#22787f] text-white ">
+        <div
+          className="hidden md:flex gap-2 p py-3 font-sans   w-full   text-sm"
+          style={{ scrollbarWidth: "none" }}
         >
-          ALL <TiArrowSortedDown />
-        </span> */}
+          <span
+            className="flex items-center gap-1 text-sm cursor-pointer relative font-semibold text-nowrap"
+            onMouseEnter={() => setCategoryDropdown(true)}
+            onMouseLeave={() => setCategoryDropdown(false)}
+          >
+            All Categories <TiArrowSortedDown />
+          </span>
 
-        {/* <NavbarDropdown
-          categoryDropdown={categoryDropdown}
-          setCategoryDropdown={setCategoryDropdown}
-        /> */}
+          {/* <NavbarDrpdown
+            categoryDropDown={categoryDropdown}
+            setCategoryDropDown={setCategoryDropdown}
+            data={category}
+          /> */}
 
-        {motorsData.map((item, index) => (
-          <Link key={index} to={`/productcategory/${item.category}`}>
-            <span className="justify-between font-semibold text-nowrap">
-              {getValue(item, "category")}
-            </span>
-          </Link>
-        ))}
+          <div
+            className="flex overflow-scroll "
+            style={{
+              scrollbarWidth: "none",
+            }}
+          >
+            {category?.map((item: any, index: number) => (
+              <Link
+                to={`/productCategoryPage/${getValue(item, "category_slug")}`}
+              >
+                <span
+                  key={index}
+                  className=" font-semibold text-nowrap  text-[12px] mr-3 text-white  pr-2 border-r-2"
+                >
+                  {getValue(item, "category_name")}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
 export default Header;
-
-export const PATH = {
-  dashboard: "/",
-  resetPassword: "/resetPassword",
-  forgotPassword: "/forgotPassword",
-  login: "/login",
-  productDetailsPage: "/productDetailsPage",
-  cart: "/cart",
-  productCategoryPage: "/productcategory/:id",
-  paymentMethod: "/paymentmethod",
-  wishlist: "/wishlist",
-  categoryCardPage: "/categorycardpage",
-  payment: "/payment",
-};

@@ -1,88 +1,53 @@
 import React from "react";
-import Slider from "react-slick";
-import image2 from "./../../assets/images/banner5.jpg";
-import image3 from "./../../assets/images/Handicraftbag.jpg";
-import image4 from "./../../assets/images/banner5.jpg";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-interface Image {
-  url: string;
-  alt: string;
-}
-
-const dummyData: Image[] = [
-  {
-    url: image2,
-    alt: "Image 2 description",
-  },
-  {
-    url: image3,
-    alt: "Image 3 description",
-  },
-  {
-    url: image4,
-    alt: "Image 4 description",
-  },
-];
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/themes/splide-default.min.css";
+import { useGetAllSlider } from "../../hooks/product.hook";
+import { getValue } from "../../utils/object";
 
 const Carosule: React.FC = () => {
-  const settings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1, // Adjusted for responsive settings
-    slidesToScroll: 1,
-    autoplay: true, // Enable autoplay
-    autoplaySpeed: 3000, // Set autoplay speed to 3 seconds
-    draggable: true,
-    swipeToSlide: true,
-
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const { data: carasoule } = useGetAllSlider();
 
   return (
-    <div className=" z-10 ">
-      <Slider {...settings}>
-        {dummyData.map((item, index) => (
-          <div
-            key={index}
-            className="flex justify-center items-center"
-            style={{ padding: "0px" }}
-          >
-            <div className="w-full h-52 md:h-96  ">
-              <img
-                src={item.url}
-                alt={item.alt}
-                className="w-full h-full object-cover "
-              />
+    <div className=" z-10  w-full ">
+      <Splide
+        options={{
+          type: "slide",
+          perPage: 1,
+          gap: 3,
+          arrows: false,
+          pagination: false,
+          breakpoints: {
+            1024: {
+              perPage: 1,
+            },
+            768: {
+              perPage: 1,
+            },
+            640: {
+              perPage: 1,
+            },
+          },
+        }}
+        className="splide"
+      >
+        {carasoule?.map((item: any) => (
+          <SplideSlide>
+            <div
+              key={getValue(item, "id")}
+              className="flex justify-center items-center"
+              style={{ padding: "0px" }}
+            >
+              <div className="w-full max-h-52 md:max-h-full md:h-full      ">
+                <img
+                  src={getValue(item, "image")}
+                  alt={getValue(item, "title")}
+                  className="w-full min-h-20 max-h-96 object-contain md:object-cover  "
+                />
+              </div>
             </div>
-          </div>
+          </SplideSlide>
         ))}
-      </Slider>
+      </Splide>
     </div>
   );
 };

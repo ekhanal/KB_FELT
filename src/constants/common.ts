@@ -7,11 +7,11 @@ const STAGING_ENV = "staging";
 export const BASE_URL = (() => {
   switch (import.meta.env.VITE_ENVIRONMENT) {
     case PRODUCTION_ENV:
-      return "http://127.0.0.1:8000";
+      return "https://admin.pokharauae.com";
     case STAGING_ENV:
-      return "http://127.0.0.1:8000";
+      return "https://admin.pokharauae.com";
     default:
-      return "http://127.0.0.1:8000";
+      return "https://admin.pokharauae.com";
   }
 })();
 

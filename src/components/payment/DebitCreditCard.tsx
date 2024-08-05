@@ -4,7 +4,7 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-import { useCreateAccount } from "../../hooks/auth.hook";
+import { useRegisterUser } from "../../hooks/auth.hook";
 import { showErrorMessage } from "../../utils/toast";
 import { getValue } from "../../utils/object";
 import CustomInput from "../form/custom/CustomInput";
@@ -15,7 +15,7 @@ import visa from "./../../assets/images/visa.png";
 import american from "./../../assets/images/american.png";
 const DebitCreditCard = () => {
   const methods = useForm();
-  const { mutateAsync: registerUser } = useCreateAccount();
+  const { mutateAsync: registerUser } = useRegisterUser();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {

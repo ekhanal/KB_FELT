@@ -11,31 +11,43 @@ import { showErrorMessage } from "../../utils/toast";
 import { getValue } from "../../utils/object";
 import { useClickOutside } from "../../hooks/useClickOutside.hook";
 import CustomInput from "../form/custom/CustomInput";
-import { useRegisterUser } from "../../hooks/auth.hook";
+
 import Button from "../common/Button/Button";
+import {
+  // useAddAddress,
+  useEditAddress,
+  // useGetAllAddress,
+  useGetAllAddressById,
+} from "../../hooks/cart.hook";
 
 interface ModalProps {
   visible: boolean;
   onClose: () => void;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
+  addressId: any;
 }
 
-const AddressModal: React.FC<ModalProps> = ({
+const EditAddressModal: React.FC<ModalProps> = ({
   visible,
   setVisible,
   onClose,
   title,
+  addressId,
 }) => {
   const modalContent = useRef<HTMLDivElement>(null);
   useClickOutside(modalContent, visible, setVisible);
-  const { mutateAsync: registerUser } = useRegisterUser();
 
+  const { mutateAsync: createAddress } = useEditAddress({
+    id: addressId,
+  });
+
+  const { data: address } = useGetAllAddressById({ id: addressId });
   const methods = useForm();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      const response = await registerUser(data);
+      const response = await createAddress(data);
       if (response) {
         setVisible(false);
       }
@@ -98,42 +110,86 @@ const AddressModal: React.FC<ModalProps> = ({
                     onSubmit={methods.handleSubmit(onSubmit)}
                     className="flex flex-col gap-5"
                   >
-                    <CustomInput
-                      type="text"
-                      name="full_name"
-                      placeHolder="Full name"
-                      style="py-2 md:py-3 text-sm md:text-base rounded-xl"
-                    />
-
                     <div className="flex gap-5">
                       <CustomInput
                         type="text"
-                        name="street"
-                        placeHolder="Street"
+                        name="first_name"
+                        placeHolder="first name"
+                        defaultValue={getValue(address, "0.first_name")}
                         style="py-2 md:py-3 text-sm md:text-base rounded-xl"
                       />
                       <CustomInput
                         type="text"
-                        name="City"
-                        placeHolder="City"
+                        name="last_name"
+                        placeHolder="last name"
+                        defaultValue={getValue(address, "0.last_name")}
                         style="py-2 md:py-3 text-sm md:text-base rounded-xl"
                       />
                     </div>
-
                     <div className="flex gap-5">
-                      <CustomInput
-                        type="text"
-                        name="Country"
-                        placeHolder="Country"
-                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
-                      />
                       <CustomInput
                         type="Number"
-                        name="Contact no"
+                        name="phone"
                         placeHolder="Contact no"
+                        defaultValue={getValue(address, "0.phone")}
+                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                      />
+                      <CustomInput
+                        type="email"
+                        name="email"
+                        placeHolder="email"
+                        defaultValue={getValue(address, "0.email")}
                         style="py-2 md:py-3 text-sm md:text-base rounded-xl"
                       />
                     </div>
+                    <div className="flex gap-5">
+                      <CustomInput
+                        type="text"
+                        name="company_name"
+                        placeHolder="company name"
+                        defaultValue={getValue(address, "0.company_name")}
+                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                      />
+                      <CustomInput
+                        type="text"
+                        name="street_address"
+                        placeHolder="Street"
+                        defaultValue={getValue(address, "0.street_address")}
+                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                      />
+                    </div>
+
+                    <div className="flex gap-5">
+                      <CustomInput
+                        type="text"
+                        name="town_city"
+                        placeHolder="City"
+                        defaultValue={getValue(address, "0.town_city")}
+                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                      />
+                      <CustomInput
+                        type="text"
+                        name="state"
+                        placeHolder="state"
+                        defaultValue={getValue(address, "0.state")}
+                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                      />
+                      <CustomInput
+                        type="text"
+                        name="country_region"
+                        placeHolder="country_region"
+                        defaultValue={getValue(address, "0.country_region")}
+                        style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                      />
+                    </div>
+                    <CustomInput
+                      type="text"
+                      name="zip_code"
+                      placeHolder="zip_code"
+                      defaultValue={getValue(address, "0.zip_code")}
+                      style="py-2 md:py-3 text-sm md:text-base rounded-xl"
+                    />
+                    <div className="flex gap-5"></div>
                     <Button title="Submit" onClick={onClose} />
                   </form>
                 </FormProvider>
@@ -146,4 +202,4 @@ const AddressModal: React.FC<ModalProps> = ({
   );
 };
 
-export default AddressModal;
+export default EditAddressModal;

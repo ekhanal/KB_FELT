@@ -2,17 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getValue } from "../../utils/object";
 
-interface Product {
-  image: string;
-  price: number;
-  description: string;
-  rating: number;
-  offer: number;
-  disPrice: number;
-}
-
 interface ProductCardProps {
-  data: Product[];
+  data: any;
   heading: string;
 }
 
@@ -35,7 +26,7 @@ const AllProductsCard: React.FC<ProductCardProps> = ({ data, heading }) => {
     <>
       <h2 className="my-5 text-xl font-semibold text-pink-400">{heading}</h2>
       <div className="rounded-3xl font-sans grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2">
-        {data.slice(0, visibleProducts).map((item, index) => (
+        {data.slice(0, visibleProducts).map((item: any, index: number) => (
           <Link
             key={index}
             to="/productdetailspage"

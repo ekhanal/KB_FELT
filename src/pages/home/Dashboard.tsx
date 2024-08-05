@@ -13,25 +13,18 @@ import AllProduct from "../../components/Products/AllProduct";
 import OffProduct from "../../components/Products/OffProduct";
 import OfferPage from "../../components/Products/OfferPage";
 
-
 const Dashboard = () => {
   return (
     <>
       <Carosule />
       <CategoriesCarosule />
       <NewArrival />
-      {/* <Sale /> */}
-      {/* <TopProducts /> */}
-      {/* <DiscountBanner /> */}
       <ChooseBanner />
-      {/* <TopProducts />
-      <OfferBanner /> */}
       <TrendingProducts />
       <MoreProduct />
       <OffProduct />
       <OfferPage />
       <AllProduct />
-      {/* <AllProducts /> */}
     </>
   );
 };

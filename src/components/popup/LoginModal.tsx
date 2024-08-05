@@ -9,8 +9,8 @@ import {
   useForm,
 } from "react-hook-form";
 
-import { useLoginAccount } from "../../hooks/auth.hook";
-import { showErrorMessage, showSuccessMessage } from "../../utils/toast";
+import { useLoginAccount, useUserProfile } from "../../hooks/auth.hook";
+import { showErrorMessage } from "../../utils/toast";
 import Logo from "./../../assets/images/kb fent logo.svg";
 
 import { AUTH_COOKIE_CONFIG } from "../../constants/common";
@@ -20,9 +20,6 @@ import { setCookie } from "../../utils/cookie";
 import CustomInput from "../form/custom/CustomInput";
 import { useClickOutside } from "../../hooks/useClickOutside.hook";
 
-interface Props {
-  fullName: string;
-}
 interface ModalProps {
   visible: boolean;
   onClose: () => void;
@@ -32,30 +29,45 @@ interface ModalProps {
 const LoginModal: React.FC<ModalProps> = ({ visible, setVisible, onClose }) => {
   const modalContent = useRef<HTMLDivElement>(null);
   useClickOutside(modalContent, visible, setVisible);
-  const { setIsLoggedIn } = useAuthContext();
-
-  const { mutateAsync: loginUser } = useLoginAccount();
-
   const methods = useForm();
 
+  const { mutateAsync: loginAccount } = useLoginAccount();
+  const { setIsLoggedIn } = useAuthContext();
+  const { refetch: userdata } = useUserProfile();
+
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    const resData: Props = data as Props;
-    console.log(resData);
     try {
-      const response = await loginUser(data);
-      console.log({ response });
-      const jwtToken = "abishekShah";
+      const resData = {
+        email: data.email,
+        password: data.password,
+      };
+
+      console.log(resData);
+      const response = await loginAccount(resData);
+      const refresh = getValue(response.token, "refresh");
+      const access = getValue(response.token, "access");
+      console.log(response);
+
       setCookie({
-        cookieName: AUTH_COOKIE_CONFIG.BEARER_TOKEN,
-        value: jwtToken,
+        cookieName: AUTH_COOKIE_CONFIG.loggedInCookie,
+        value: "true",
         expiresIn: 1,
       });
-      showSuccessMessage(getValue(response, "detail"));
+      setCookie({
+        cookieName: AUTH_COOKIE_CONFIG.ACCESS_TOKEN,
+        value: access,
+        expiresIn: 1,
+      });
+      setCookie({
+        cookieName: AUTH_COOKIE_CONFIG.REFRESH_TOKEN,
+        value: refresh,
+        expiresIn: 1,
+      });
       setIsLoggedIn(true);
-      setVisible(false);
+
+      userdata();
     } catch (err) {
-      showErrorMessage("Invalid credentials or no active account");
-      console.error(err);
+      showErrorMessage(getValue(err, "message"));
     }
   };
 

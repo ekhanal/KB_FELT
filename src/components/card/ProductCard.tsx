@@ -21,7 +21,7 @@ interface ProductCardProps {
   heading: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ data, heading }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ data }) => {
   const handleClick = () => {
     window.scrollTo(0, 0);
   };
@@ -69,8 +69,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ data, heading }) => {
     <div className="mx-5 lg:mx-20 p-2 md:p-5 my-5 rounded-md font-sans bg-white">
       <div className="flex justify-between">
         <div className="flex flex-col items-center justify-center">
-          <h3 className="text-base md:text-2xl font-bold text-pink-400">NEW ARRIVAL</h3>
-        
+          <h3 className="text-base md:text-2xl font-bold text-pink-400">
+            NEW ARRIVAL
+          </h3>
         </div>
         <a href={"/CategoryCardPage"}>
           <ButtonLogin
@@ -92,7 +93,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ data, heading }) => {
                 <img
                   src={getValue(item, "image")}
                   alt="product"
-                  className="rounded-lg h-32 md:h-56 w-full object-cover" 
+                  className="rounded-lg h-32 md:h-56 w-full object-cover"
                 />
                 <span className="absolute top-0 right-2 p-1 bg-rose-500 text-white text-xs rounded-lg h-5 flex md:hidden text-nowrap items-center">
                   24% off
