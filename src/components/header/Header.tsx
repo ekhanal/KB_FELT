@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { TiArrowSortedDown } from "react-icons/ti";
+import NavbarDrpdown from "./NavbarDropdown";
 import { getValue } from "../../utils/object";
 import { Link } from "react-router-dom";
 import { useGetAllCategory } from "../../hooks/product.hook";
@@ -19,7 +20,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="relative  px-5 lg:px-24  bg-[#22787f] text-white ">
+      <div className="relative  px-5 lg:px-24  primary-bg-colors text-white mt-2">
         <div
           className="hidden md:flex gap-2 p py-3 font-sans   w-full   text-sm"
           style={{ scrollbarWidth: "none" }}
@@ -32,11 +33,11 @@ const Header = () => {
             All Categories <TiArrowSortedDown />
           </span>
 
-          {/* <NavbarDrpdown
+          <NavbarDrpdown
             categoryDropDown={categoryDropdown}
             setCategoryDropDown={setCategoryDropdown}
             data={category}
-          /> */}
+          />
 
           <div
             className="flex overflow-scroll "

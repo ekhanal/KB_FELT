@@ -23,6 +23,7 @@ import Display from "./components/footer/Display";
 import Footer from "./components/footer/Footer";
 import ScrollToTop from "./scroll/ScrollToTop";
 import SearchPage from "./pages/products/SearchPage";
+import PaymentMethod from "./pages/payment/PaymentMethod";
 // import { useAuthContext } from "./hooks/contextConsumer.hook";
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
               element={<CategoryCardPage />}
             />
             <Route path={PATH.searchPage} element={<SearchPage />} />
+            <Route path={PATH.paymentMethod} element={<PaymentMethod />} />
           </Routes>
         </div>
         <Testimonials />

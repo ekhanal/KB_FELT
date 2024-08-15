@@ -30,7 +30,7 @@ export const useGetAllSearchData = ({ searchTerm }: { searchTerm: string }) => {
 export const useGetAllCategory = () => {
   return useQuery({
     queryKey: [TEST_QUERY.test],
-    queryFn: () => get({ url: `api/v1/product/main/categories/` }),
+    queryFn: () => get({ url: `api/v1/product/categories/` }),
     select: (response) => {
       return response;
     },

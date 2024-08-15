@@ -7,11 +7,11 @@ const STAGING_ENV = "staging";
 export const BASE_URL = (() => {
   switch (import.meta.env.VITE_ENVIRONMENT) {
     case PRODUCTION_ENV:
-      return "http://admin.kbfeltnwool.com";
+      return "https://admin.kbfeltnwool.com";
     case STAGING_ENV:
-      return "http://admin.kbfeltnwool.com";
+      return "https://admin.kbfeltnwool.com";
     default:
-      return "http://admin.kbfeltnwool.com";
+      return "https://admin.kbfeltnwool.com";
   }
 })();
 
