@@ -24,6 +24,7 @@ import Footer from "./components/footer/Footer";
 import ScrollToTop from "./scroll/ScrollToTop";
 import SearchPage from "./pages/products/SearchPage";
 import PaymentMethod from "./pages/payment/PaymentMethod";
+import Login from "./pages/auth/Login";
 // import { useAuthContext } from "./hooks/contextConsumer.hook";
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
             />
             <Route path={PATH.searchPage} element={<SearchPage />} />
             <Route path={PATH.paymentMethod} element={<PaymentMethod />} />
+            <Route path={PATH.login} element={<Login />} />
           </Routes>
         </div>
         <Testimonials />
